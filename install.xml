@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin name="tell_a_friend">
+	<title>Tell a friend</title>
+	<summary>Allows users to send an email to the friend telling about the website.</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>3.2.0</version>
+	<date>2014-12-02</date>
+	<compatibility>3.2</compatibility>
+
+	<config group="miscellaneous" name="tell_a_friend_div" type="divider">Tell a Friend</config>
+	<config group="miscellaneous" name="tell_a_friend_messagesubject" type="text" description="Email subject">Dear {RECEIVER}, {SENDER} wants to share this link!</config>
+	<config group="miscellaneous" name="tell_a_friend_messagebody" type="textarea" description="Email template">Greetings. I would recommend you to check this site {URL}.</config>
+
+	<pages>
+		<page menus="bottom" url="tell_friend/" name="tell_a_friend" readonly="0">Tell A Friend</page>
+	</pages>
+
+	<phrases>
+		<phrase category="frontend" key="sender_name">Sender Name</phrase>
+		<phrase category="frontend" key="sender_email">Sender Email</phrase>
+		<phrase category="frontend" key="receiver_name">Receiver Name</phrase>
+		<phrase category="frontend" key="receiver_email">Receiver Email</phrase>
+		<phrase category="frontend" key="message">Message</phrase>
+		<phrase category="frontend" key="sender_email_incorrect">Sender email is invalid.</phrase>
+		<phrase category="frontend" key="receiver_email_incorrect">Recipient email is invalid.</phrase>
+		<phrase category="frontend" key="message_len_incorrect">Message length must be {NUM} chars at most.</phrase>
+
+		<phrase category="common" key="tell_a_friend">Tell a friend about us</phrase>
+		<phrase category="common" key="message_sent">Message has been sent successfully.</phrase>
+
+		<phrase category="tooltip" key="tell_a_friend_messagesubject">Tell a Friend email subject.You can use {RECEIVER} and {SENDER} variables in it.</phrase>
+		<phrase category="tooltip" key="tell_a_friend_messagebody">Tell a Friend email template. The message added manually by site visitors will be appended to the end of this message.</phrase>
+
+		<phrase category="admin" key="no_contacts">There are no people who have shared this link with friends.</phrase>
+		<phrase category="admin" key="email_not_sent">Email has not been sent.</phrase>
+	</phrases>
+
+	<install>
+		<sql>
+			<![CDATA[
+CREATE TABLE `{prefix}tell_a_friend` (
+	`id` mediumint(8) NOT NULL auto_increment,
+	`sender_name` varchar(50) NOT NULL,
+	`sender_email` varchar(50) NOT NULL,
+	`receiver_name` varchar(50) NOT NULL,
+	`receiver_email` varchar(50) NOT NULL,
+	`message` text NOT NULL,
+	`date` datetime NOT NULL,
+	`ip` bigint(12) unsigned NOT NULL,
+	PRIMARY KEY  (`id`)
+) {mysql_version};
+			]]>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<![CDATA[
+DROP TABLE IF EXISTS `{prefix}tell_a_friend`;
+			]]>
+		</sql>
+	</uninstall>
+</plugin>
