@@ -37,7 +37,7 @@
 		<label for="message">{lang key='message'}:
 			<textarea class="form-control" name="message" id="message" rows="5">{if isset($smarty.post.message)}{$smarty.post.message}{/if}</textarea>
 		</label>
-			{ia_add_js}
+		{ia_add_js}
 			jQuery(function($)
 			{
 				$('#message').dodosTextCounter('500', {
@@ -46,9 +46,8 @@
 					});
 				$('.textcounter_message').addClass('textcounter').wrap('<p class="help-block text-right m-b-0"></p>').before('{lang key='chars_left'} ');
 			});
-			{/ia_add_js}
-			{ia_print_js files='jquery/plugins/jquery.textcounter'}
-		</div>
+		{/ia_add_js}
+		{ia_print_js files='jquery/plugins/jquery.textcounter'}
 	</div>
 
 	{include file="captcha.tpl"}
