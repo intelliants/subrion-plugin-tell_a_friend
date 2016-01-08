@@ -1,0 +1,11 @@
+/* Tell a friend page */
+
+.tell-a-friend label {
+	width: 100%;
+}
+
+.tell-a-friend label > input,
+.tell-a-friend label > textarea,
+.tell-a-friend label > select {
+	font-weight: normal;
+}

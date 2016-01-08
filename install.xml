@@ -4,9 +4,9 @@
 	<summary>Allows users to send an email to the friend telling about the website.</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>3.2.0</version>
-	<date>2014-12-02</date>
-	<compatibility>3.2</compatibility>
+	<version>4.0.0</version>
+	<date>2016-01-08</date>
+	<compatibility>4.0</compatibility>
 
 	<config group="miscellaneous" name="tell_a_friend_div" type="divider">Tell a Friend</config>
 	<config group="miscellaneous" name="tell_a_friend_messagesubject" type="text" description="Email subject">Dear {RECEIVER}, {SENDER} wants to share this link!</config>
